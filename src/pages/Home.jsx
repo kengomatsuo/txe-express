@@ -8,7 +8,8 @@ import mascot from "/mascot.png";
 import mainLogo from "/logo_color.png";
 import { Link } from "react-router-dom";
 import Card from "../components/Card";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
+import Carousel from "../components/Carousel"
 
 const Home = () => {
   const services = [
@@ -65,33 +66,34 @@ const Home = () => {
           minHeight: "110%",
           aspectRatio: "initial",
           filter: "blur(10px)",
-          backgroundColor: "red",
           zIndex: -1,
         }}
       />
       <section
         style={{
+          marginTop: "4rem",
           display: "flex",
           width: "100%",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           minHeight: "50svh",
-          padding: "2rem 20px",
+          padding: "2rem 0",
+          gap: "2.5rem",
         }}
       >
-        <h1>Yang penting jadi</h1>
+        <Carousel />
         <div
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.7)",
             borderRadius: "10px",
-            padding: "2rem 1rem",
+            padding: "1rem",
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-around",
             boxSizing: "border-box",
-            width: "min(90%, 600px)",
+            width: "min(calc(100% - 40px), 600px)",
             gap: "1rem",
           }}
         >
@@ -110,16 +112,19 @@ const Home = () => {
                 transition: "transform 0.2s, color 0.2s",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "scale(1.05)";
+                e.currentTarget.style.transform = "scale(1.03)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "scale(1)";
                 e.currentTarget.style.color = "inherit";
               }}
               onPointerDown={(e) => {
-                e.currentTarget.style.transform = "scale(0.95)";
+                e.currentTarget.style.transform = "scale(0.97)";
               }}
               onPointerUp={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+              }}
+              onPointerCancel={(e) => {
                 e.currentTarget.style.transform = "scale(1)";
               }}
             >

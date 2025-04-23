@@ -19,6 +19,7 @@
 * {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Existing styles */

@@ -23,7 +23,7 @@ const Navbar = () => {
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
       }}
     >
-      <div>
+      <div style={{ flex: 1 }}>
         <a
           style={{
             backgroundColor: "#f3f3f3",
@@ -32,6 +32,7 @@ const Navbar = () => {
             padding: "0.25rem 0.4rem",
             alignItems: "center",
             gap: "0.4rem",
+            width: "fit-content",
           }}
         >
           <img
@@ -42,13 +43,17 @@ const Navbar = () => {
               width: "auto",
             }}
           />
-           ID
+          ID
         </a>
       </div>
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-      }}>
+      <div
+        style={{
+          display: "flex",
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <img
           src={mainLogo}
           alt="TXE Express logo"
@@ -58,7 +63,7 @@ const Navbar = () => {
           }}
         />
       </div>
-      <div>
+      <div style={{ flex: 1, justifyItems: "right" }}>
         <a
           style={{
             backgroundColor: "#f3f3f3",
@@ -66,6 +71,7 @@ const Navbar = () => {
             display: "flex",
             padding: "0.25rem 0.4rem",
             alignItems: "center",
+            width: "fit-content",
           }}
         >
           <img
