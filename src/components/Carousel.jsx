@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import navButton from "/angle-circle-left.svg";
-import poster1 from "../assets/2100x600.png";
-import poster2 from "../assets/2100x600_orange.png";
-import poster3 from "../assets/2100x600_blue.png";
 
-const Carousel = () => {
+const Carousel = ({posters = []}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const carouselRef = useRef(null);
-  const posters = [poster1, poster2, poster3];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,8 +26,20 @@ const Carousel = () => {
   return (
     <div
       style={{
-        width: "min(100%, 65rem)",
+        minWidth: "min(90%, 600px)",
+        width: "max(90%, 600px)",
+        maxWidth: "100%",
         position: "relative",
+      }}
+      onMouseEnter={() => {
+        if (!("ontouchstart" in window)) {
+          setIsHovered(true);
+        }
+      }}
+      onMouseLeave={() => {
+        if (!("ontouchstart" in window)) {
+          setIsHovered(false);
+        }
       }}
     >
       <div
@@ -40,10 +49,12 @@ const Carousel = () => {
           width: "100%",
           aspectRatio: "21/6",
           borderRadius: "10px",
-          overflowX: "hidden",
+          overflowX: "scroll",
           scrollSnapType: "x mandatory",
           scrollBehavior: "smooth",
           display: "flex",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
         }}
       >
         {posters.map((poster, index) => (
@@ -53,22 +64,25 @@ const Carousel = () => {
             alt={`Poster ${index + 1}`}
             style={{
               minWidth: "100%",
-              height: "100%",
+              minHeight: "100%",
               objectFit: "cover",
-              scrollSnapAlign: "start",
+              scrollSnapAlign: "center",
               flexShrink: 0,
             }}
           />
         ))}
       </div>
+
       <div
         style={{
           position: "absolute",
           top: "50%",
           left: 0,
-          transform: "translate(-115%, -50%)",
+          transform: isHovered ? "translate(-50%, -50%)" : "translate(0, -50%)",
           display: "flex",
           gap: "0.5rem",
+          opacity: isHovered ? 1 : 0,
+          transition: "opacity 0.3s, transform 0.3s",
         }}
         onClick={() => {
           const newIndex = (currentIndex - 1 + posters.length) % posters.length;
@@ -98,9 +112,11 @@ const Carousel = () => {
           position: "absolute",
           top: "50%",
           right: 0,
-          transform: "translate(115%, -50%)",
+          transform: isHovered ? "translate(50%, -50%)" : "translate(0, -50%)",
           display: "flex",
           gap: "0.5rem",
+          opacity: isHovered ? 1 : 0,
+          transition: "opacity 0.3s, transform 0.3s",
         }}
         onClick={() => {
           const newIndex = (currentIndex + 1) % posters.length;

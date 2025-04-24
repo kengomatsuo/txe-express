@@ -63,7 +63,13 @@ const Navbar = () => {
           }}
         />
       </div>
-      <div style={{ flex: 1, justifyItems: "right" }}>
+      <div
+        style={{
+          flex: 1,
+          justifyContent: "end",
+          display: "flex",
+        }}
+      >
         <a
           style={{
             backgroundColor: "#f3f3f3",

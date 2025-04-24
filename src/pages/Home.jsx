@@ -9,9 +9,19 @@ import mainLogo from "/logo_color.png";
 import { Link } from "react-router-dom";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
-import Carousel from "../components/Carousel"
+import Carousel from "../components/Carousel";
+import FeatureButton from "../components/FeatureButton";
+import poster1 from "../assets/2100x600.png";
+import poster2 from "../assets/2100x600_orange.png";
+import poster3 from "../assets/2100x600_blue.png";
 
 const Home = () => {
+  const features = [
+    { icon: statusIcon, label: "Lacak" },
+    { icon: priceIcon, label: "Harga" },
+    { icon: outletIcon, label: "Outlet" },
+  ];
+
   const services = [
     {
       title: "Pengiriman Kendaraan",
@@ -75,76 +85,33 @@ const Home = () => {
           display: "flex",
           width: "100%",
           flexDirection: "column",
-          justifyContent: "center",
+          // justifyContent: "center",
           alignItems: "center",
-          minHeight: "50svh",
           padding: "2rem 0",
           gap: "2.5rem",
         }}
       >
-        <Carousel />
+        <Carousel posters={[
+          poster1,
+          poster2,
+          poster3,
+        ]}/>
         <div
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.7)",
             borderRadius: "10px",
-            padding: "1rem",
+            overflow: "hidden",
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-around",
             boxSizing: "border-box",
             width: "min(calc(100% - 40px), 600px)",
-            gap: "1rem",
+            
           }}
         >
-          {[
-            { icon: statusIcon, label: "Lacak" },
-            { icon: priceIcon, label: "Harga" },
-            { icon: outletIcon, label: "Outlet" },
-          ].map((item, index) => (
-            <Link
-              key={index}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                textDecoration: "none",
-                transition: "transform 0.2s, color 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "scale(1.03)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
-                e.currentTarget.style.color = "inherit";
-              }}
-              onPointerDown={(e) => {
-                e.currentTarget.style.transform = "scale(0.97)";
-              }}
-              onPointerUp={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
-              }}
-              onPointerCancel={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
-              }}
-            >
-              <div
-                style={{
-                  aspectRatio: "1/1",
-                  alignItems: "center",
-                  gap: "10px",
-                  flexDirection: "column",
-                  display: "flex",
-                }}
-              >
-                <img
-                  src={item.icon}
-                  alt={item.label}
-                  style={{ width: "50px", height: "50px" }}
-                />
-                <label>{item.label}</label>
-              </div>
-            </Link>
+          {features.map((item, index) => (
+            <FeatureButton item={item} index={index} key={index} />
           ))}
         </div>
       </section>
