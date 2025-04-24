@@ -13,6 +13,18 @@ const router = createBrowserRouter([
       <a href="/">Go back home</a>
     </div>,
   },
+  {
+    path: "/tracking",
+    element: <div>Tracking Page</div>,
+  },
+  {
+    path: "/pricing",
+    element: <div>Pricing Page</div>,
+  },
+  {
+    path: "/outlet",
+    element: <div>Outlet Page</div>,
+  },
 ], {
   basename: "/txe-express"  // Add this line to match your Vite base config
 });

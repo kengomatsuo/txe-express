@@ -6,6 +6,7 @@ const FeatureButton = ({ item, index }) => {
   return (
     <Link
       key={index}
+      to={item.path}
       style={{
         display: "flex",
         flex: 1,

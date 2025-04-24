@@ -6,7 +6,6 @@ import priceIcon from "/tags.svg";
 import outletIcon from "/marker.svg";
 import mascot from "/mascot.png";
 import mainLogo from "/logo_color.png";
-import { Link } from "react-router-dom";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 import Carousel from "../components/Carousel";
@@ -17,9 +16,9 @@ import poster3 from "../assets/2100x600_blue.png";
 
 const Home = () => {
   const features = [
-    { icon: statusIcon, label: "Lacak" },
-    { icon: priceIcon, label: "Harga" },
-    { icon: outletIcon, label: "Outlet" },
+    { icon: statusIcon, path: "tracking", label: "Lacak" },
+    { icon: priceIcon, path: "pricing", label: "Harga" },
+    { icon: outletIcon, path: "outlet", label: "Outlet" },
   ];
 
   const services = [
@@ -87,15 +86,11 @@ const Home = () => {
           flexDirection: "column",
           // justifyContent: "center",
           alignItems: "center",
-          padding: "2rem 0",
+          padding: "4rem 0",
           gap: "2.5rem",
         }}
       >
-        <Carousel posters={[
-          poster1,
-          poster2,
-          poster3,
-        ]}/>
+        <Carousel posters={[poster1, poster2, poster3]} />
         <div
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.7)",
@@ -107,7 +102,6 @@ const Home = () => {
             justifyContent: "space-around",
             boxSizing: "border-box",
             width: "min(calc(100% - 40px), 600px)",
-            
           }}
         >
           {features.map((item, index) => (
@@ -123,14 +117,14 @@ const Home = () => {
           justifyContent: "center",
           alignItems: "center",
           minHeight: "50svh",
-          padding: "2rem 0",
+          padding: "4rem 0",
         }}
       >
         <div
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.7)",
-            borderRadius: "10px",
-            padding: "2rem 1.5rem",
+            borderRadius: "20px",
+            padding: "2rem 1.5rem 1rem 1.5rem",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -153,30 +147,38 @@ const Home = () => {
               justifyContent: "center",
               textAlign: "center",
               flexWrap: "wrap",
-              gap: "2rem",
+              gap: "1.5rem",
             }}
           >
-            <img
-              src={mascot}
-              alt="TXE Express mascot"
-              style={{
-                width: "8rem",
-                height: "8rem",
-                marginBottom: "1rem",
-              }}
-            />
-            <img
-              src={mainLogo}
-              alt="TXE Express logo"
-              style={{
-                width: "auto",
-                height: "4rem",
-                marginBottom: "1rem",
-              }}
-            />
+            <div style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              flex: 1,
+              gap: "1rem",
+            }}>
+              <img
+                src={mascot}
+                alt="TXE Express mascot"
+                style={{
+                  width: "8rem",
+                  height: "8rem",
+                  marginBottom: "1rem",
+                }}
+              />
+              <img
+                src={mainLogo}
+                alt="TXE Express logo"
+                style={{
+                  width: "auto",
+                  height: "4rem",
+                  marginBottom: "1rem",
+                }}
+              />
+            </div>
             <div
               style={{
-                flex: 1,
+                flex: 2,
               }}
             >
               <h2
