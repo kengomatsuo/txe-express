@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSwipeable } from "react-swipeable"; // Import the hook
 import mainLogo from "/logo_color.png";
 import burgerIcon from "/menu-burger.svg";
 import globeIcon from "/globe.svg";
@@ -13,6 +14,12 @@ const Navbar = () => {
     { name: "Berita", path: "news" },
     { name: "Hubungi Kami", path: "contact" },
   ];
+
+  // Configure swipe handlers
+  const swipeHandlers = useSwipeable({
+    onSwipedRight: () => setIsNavbarOpen(false),
+    preventScrollOnSwipe: true,
+  });
 
   return (
     <div
@@ -43,6 +50,19 @@ const Navbar = () => {
             alignItems: "center",
             gap: "0.4rem",
             width: "fit-content",
+            transition: "all 0.2s",
+          }}
+          onPointerDown={(e) => {
+            e.currentTarget.style.opacity = 0.7;
+            e.currentTarget.style.scale = 0.95;
+          }}
+          onPointerUp={(e) => {
+            e.currentTarget.style.opacity = 1;
+            e.currentTarget.style.scale = 1;
+          }}
+          onPointerCancel={(e) => {
+            e.currentTarget.style.opacity = 1;
+            e.currentTarget.style.scale = 1;
           }}
         >
           <img
@@ -57,7 +77,7 @@ const Navbar = () => {
         </a>
       </div>
       <Link
-      to={"/"}
+        to={"/"}
         style={{
           display: "flex",
           flex: 1,
@@ -89,8 +109,21 @@ const Navbar = () => {
             padding: "0.25rem 0.4rem",
             alignItems: "center",
             width: "fit-content",
+            transition: "all 0.2s",
           }}
           onClick={() => setIsNavbarOpen(!isNavbarOpen)}
+          onPointerDown={(e) => {
+            e.currentTarget.style.opacity = 0.7;
+            e.currentTarget.style.scale = 0.95;
+          }}
+          onPointerUp={(e) => {
+            e.currentTarget.style.opacity = 1;
+            e.currentTarget.style.scale = 1;
+          }}
+          onPointerCancel={(e) => {
+            e.currentTarget.style.opacity = 1;
+            e.currentTarget.style.scale = 1;
+          }}
         >
           <img
             src={burgerIcon}
@@ -112,9 +145,7 @@ const Navbar = () => {
           bottom: 0,
           height: "100%",
           width: "100%",
-          backgroundColor: isNavbarOpen
-            ? "rgba(0, 0, 0, 0.2)"
-            : "transparent",
+          backgroundColor: isNavbarOpen ? "rgba(0, 0, 0, 0.2)" : "transparent",
           backdropFilter: isNavbarOpen ? "blur(5px)" : "none",
           pointerEvents: isNavbarOpen ? "unset" : "none",
           transition: "all 0.3s",
@@ -122,6 +153,7 @@ const Navbar = () => {
         onClick={() => setIsNavbarOpen(false)}
       />
       <nav
+        {...swipeHandlers} // Attach swipe handlers here
         style={{
           zIndex: 10,
           position: "fixed",
@@ -156,9 +188,19 @@ const Navbar = () => {
                     fontSize: "1.3rem",
                     fontWeight: "bold",
                     color: isActive ? "#1b56a6" : "#404040",
+                    transition: "all 0.2s",
                   };
                 }}
                 onClick={() => setIsNavbarOpen(false)}
+                onPointerDown={(e) => {
+                  e.currentTarget.style.opacity = 0.7;
+                }}
+                onPointerUp={(e) => {
+                  e.currentTarget.style.opacity = 1;
+                }}
+                onPointerCancel={(e) => {
+                  e.currentTarget.style.opacity = 1;
+                }}
               >
                 {item.name}
               </NavLink>

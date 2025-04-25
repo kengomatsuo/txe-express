@@ -26,9 +26,12 @@ const Carousel = ({posters = []}) => {
   return (
     <div
       style={{
-        minWidth: "min(90%, 600px)",
         width: "max(90%, 600px)",
-        maxWidth: "100%",
+        maxWidth: "fit-content",
+        maxHeight: "80vh",
+        backgroundColor: "black",
+        display: "flex",
+        justifyContent: "center",
         position: "relative",
       }}
       onMouseEnter={() => {
@@ -46,7 +49,8 @@ const Carousel = ({posters = []}) => {
         ref={carouselRef}
         style={{
           backgroundColor: posters.length ? "transparent" : "black",
-          width: "100%",
+          maxWidth: "100svw",
+          maxHeight: "80vh",
           aspectRatio: "10/6",
           overflowX: "scroll",
           // borderRadius: "10px",

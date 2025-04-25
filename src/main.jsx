@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider, Outlet, Link, useRouteError } from
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Products from "./pages/Products"
+import Promo from "./pages/Promo"
+import Footer from "./components/Footer"
 
 const RootLayout = () => {
   return (
@@ -12,6 +14,7 @@ const RootLayout = () => {
       <div className="content">
         <Outlet />
       </div>
+      <Footer />
     </>
   );
 };
@@ -43,6 +46,10 @@ const router = createBrowserRouter(
         {
           path: "products",
           element: <Products />
+        },
+        {
+          path: "promo",
+          element: <Promo />
         },
         {
           path: "tracking",
