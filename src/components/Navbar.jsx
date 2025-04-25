@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import mainLogo from "/logo_color.png";
 import burgerIcon from "/menu-burger.svg";
 import globeIcon from "/globe.svg";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const pages = [
+    { name: "Beranda", path: "/" },
+    { name: "Produk & Layanan", path: "products" },
+    { name: "Promo", path: "promo" },
+    { name: "Berita", path: "news" },
+    { name: "Hubungi Kami", path: "contact" },
+  ];
+
   return (
     <div
       style={{
@@ -46,7 +56,8 @@ const Navbar = () => {
           ID
         </a>
       </div>
-      <div
+      <Link
+      to={"/"}
         style={{
           display: "flex",
           flex: 1,
@@ -62,7 +73,7 @@ const Navbar = () => {
             width: "auto",
           }}
         />
-      </div>
+      </Link>
       <div
         style={{
           flex: 1,
@@ -79,6 +90,7 @@ const Navbar = () => {
             alignItems: "center",
             width: "fit-content",
           }}
+          onClick={() => setIsNavbarOpen(!isNavbarOpen)}
         >
           <img
             src={burgerIcon}
@@ -90,6 +102,70 @@ const Navbar = () => {
           />
         </a>
       </div>
+      <div
+        style={{
+          zIndex: 5,
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: "100%",
+          width: "100%",
+          backgroundColor: isNavbarOpen
+            ? "rgba(0, 0, 0, 0.2)"
+            : "transparent",
+          backdropFilter: isNavbarOpen ? "blur(5px)" : "none",
+          pointerEvents: isNavbarOpen ? "unset" : "none",
+          transition: "all 0.3s",
+        }}
+        onClick={() => setIsNavbarOpen(false)}
+      />
+      <nav
+        style={{
+          zIndex: 10,
+          position: "fixed",
+          top: 0,
+          right: 0,
+          padding: "3rem 2rem",
+          backgroundColor: "white",
+          width: "600px",
+          maxWidth: "80%",
+          height: "100%",
+          transform: isNavbarOpen ? "none" : "translate(100%, 0)",
+          transition: "transform 0.3s",
+        }}
+      >
+        <ul
+          style={{
+            listStyle: "none",
+            margin: 0,
+            padding: 0,
+            textAlign: "left",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          {pages.map((item, index) => (
+            <li key={index}>
+              <NavLink
+                to={item.path}
+                style={({ isActive }) => {
+                  return {
+                    fontSize: "1.3rem",
+                    fontWeight: "bold",
+                    color: isActive ? "#1b56a6" : "#404040",
+                  };
+                }}
+                onClick={() => setIsNavbarOpen(false)}
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 };

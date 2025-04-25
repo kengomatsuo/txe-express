@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import homeBg from "/home-bg.jpg";
 import statusIcon from "/truck-box.svg";
 import priceIcon from "/tags.svg";
@@ -64,7 +63,6 @@ const Home = () => {
         minHeight: "100vh",
       }}
     >
-      <Navbar />
       <img
         src={homeBg}
         alt="Background"
@@ -86,7 +84,7 @@ const Home = () => {
           flexDirection: "column",
           // justifyContent: "center",
           alignItems: "center",
-          padding: "4rem 0",
+          padding: "0rem 0 4rem",
           gap: "2.5rem",
         }}
       >

@@ -47,15 +47,15 @@ const Carousel = ({posters = []}) => {
         style={{
           backgroundColor: posters.length ? "transparent" : "black",
           width: "100%",
-          aspectRatio: "21/6",
+          aspectRatio: "10/6",
           overflowX: "scroll",
-          borderRadius: "10px",
+          // borderRadius: "10px",
           scrollSnapType: "x mandatory",
           scrollBehavior: "smooth",
           display: "flex",
           scrollbarWidth: "none",
           msOverflowStyle: "none",
-          gap: "1rem",
+          // gap: "1rem",
         }}
       >
         {posters.map((poster, index) => (
@@ -64,11 +64,10 @@ const Carousel = ({posters = []}) => {
             src={poster}
             alt={`Poster ${index + 1}`}
             style={{
-              minWidth: "100%",
+              width: "100%",
               height: "100%",
-              borderRadius: "10px",
-              objectFit: "cover",
-              scrollSnapAlign: "center",
+              // borderRadius: "10px",
+              scrollSnapAlign: "start",
               flexShrink: 0,
             }}
           />
