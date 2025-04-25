@@ -159,9 +159,9 @@ const Navbar = () => {
           position: "fixed",
           top: 0,
           right: 0,
-          padding: "3rem 2rem",
+          padding: "3rem 6rem 3rem 3rem",
           backgroundColor: "white",
-          width: "600px",
+          width: "fit-content",
           maxWidth: "80%",
           height: "100%",
           transform: isNavbarOpen ? "none" : "translate(100%, 0)",
@@ -185,21 +185,30 @@ const Navbar = () => {
                 to={item.path}
                 style={({ isActive }) => {
                   return {
+                    textWrap: "nowrap",
                     fontSize: "1.3rem",
                     fontWeight: "bold",
-                    color: isActive ? "#1b56a6" : "#404040",
+                    color: isActive ? "#1b56a6" : "#000000",
+                    opacity: isActive ? 1 : 0.7,
                     transition: "all 0.2s",
+                    pointerEvents: isActive ? "none" : "unset"
                   };
                 }}
                 onClick={() => setIsNavbarOpen(false)}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = 1
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.opacity = 0.7
+                }}
                 onPointerDown={(e) => {
-                  e.currentTarget.style.opacity = 0.7;
+                  e.currentTarget.style.opacity = 0.5;
                 }}
                 onPointerUp={(e) => {
-                  e.currentTarget.style.opacity = 1;
+                  e.currentTarget.style.opacity = 0.7;
                 }}
                 onPointerCancel={(e) => {
-                  e.currentTarget.style.opacity = 1;
+                  e.currentTarget.style.opacity = 0.7;
                 }}
               >
                 {item.name}
