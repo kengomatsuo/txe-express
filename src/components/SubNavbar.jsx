@@ -211,7 +211,7 @@ const SubNavbar = ({ items, current, setCurrent }) => {
                   textWrap: "nowrap",
                   padding: "0.8rem 1rem",
                   position: "relative",
-                  zIndex: 10,
+                  zIndex: 100,
                   color: current === item.id ? "#2563eb" : "#4b5563",
                 }}
               >

@@ -137,7 +137,7 @@ const Navbar = () => {
       </div>
       <div
         style={{
-          zIndex: 5,
+          zIndex: 999,
           position: "fixed",
           top: 0,
           left: 0,
