@@ -213,6 +213,19 @@ const SubNavbar = ({ items, current, setCurrent }) => {
                   position: "relative",
                   zIndex: 800,
                   color: current === item.id ? "#2563eb" : "#4b5563",
+                  transition: "all 0.2s",
+                }}
+                onPointerDown={(e) => {
+                  e.currentTarget.style.opacity = 0.7;
+                  e.currentTarget.style.scale = 0.95;
+                }}
+                onPointerUp={(e) => {
+                  e.currentTarget.style.opacity = 1;
+                  e.currentTarget.style.scale = 1;
+                }}
+                onPointerCancel={(e) => {
+                  e.currentTarget.style.opacity = 1;
+                  e.currentTarget.style.scale = 1;
                 }}
               >
                 {item.name}

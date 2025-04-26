@@ -1,11 +1,17 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Outlet, Link, useRouteError } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Link,
+  useRouteError,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import Products from "./pages/Products"
-import Promo from "./pages/Promo"
-import Footer from "./components/Footer"
+import Products from "./pages/Products";
+import Promo from "./pages/Promo";
+import Footer from "./components/Footer";
 
 const RootLayout = () => {
   return (
@@ -22,7 +28,7 @@ const RootLayout = () => {
 const ErrorBoundary = () => {
   const error = useRouteError();
   console.error(error);
-  
+
   return (
     <div className="error-page">
       <div style={{ margin: "4rem" }} />
@@ -45,11 +51,11 @@ const router = createBrowserRouter(
         },
         {
           path: "products",
-          element: <Products />
+          element: <Products />,
         },
         {
           path: "promo",
-          element: <Promo />
+          element: <Promo />,
         },
         {
           path: "tracking",
@@ -65,8 +71,8 @@ const router = createBrowserRouter(
         },
         {
           path: "*",
-          element: <ErrorBoundary />
-        }
+          element: <ErrorBoundary />,
+        },
       ],
     },
   ],

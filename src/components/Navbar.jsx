@@ -91,6 +91,19 @@ const Navbar = () => {
           style={{
             height: "2rem",
             width: "auto",
+            transition: "all 0.2s",
+          }}
+          onPointerDown={(e) => {
+            e.currentTarget.style.opacity = 0.7;
+            e.currentTarget.style.scale = 0.95;
+          }}
+          onPointerUp={(e) => {
+            e.currentTarget.style.opacity = 1;
+            e.currentTarget.style.scale = 1;
+          }}
+          onPointerCancel={(e) => {
+            e.currentTarget.style.opacity = 1;
+            e.currentTarget.style.scale = 1;
           }}
         />
       </Link>
