@@ -209,28 +209,24 @@ const Navbar = () => {
                 }}
                 onClick={() => setIsNavbarOpen(false)}
                 onMouseEnter={(e) => {
-                  // Only change opacity if not active
                   const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
                   if (!isActive) {
                     e.currentTarget.style.opacity = 1;
                   }
                 }}
                 onMouseLeave={(e) => {
-                  // Only change opacity if not active
                   const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
                   if (!isActive) {
                     e.currentTarget.style.opacity = 0.7;
                   }
                 }}
                 onPointerDown={(e) => {
-                  // Only change opacity if not active
                   const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
                   if (!isActive) {
                     e.currentTarget.style.opacity = 0.5;
                   }
                 }}
                 onPointerUp={(e) => {
-                  // Only change opacity if not active
                   const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
                   if (!isActive) {
                     e.currentTarget.style.opacity = 0.7;
