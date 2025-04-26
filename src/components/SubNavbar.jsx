@@ -181,6 +181,8 @@ const SubNavbar = ({ items, current, setCurrent }) => {
           position: "fixed",
           width: "100%",
           zIndex: 1000,
+          overflowX: "scroll",
+          scrollbarWidth: "none",
         }}
       >
         <ul
@@ -206,6 +208,7 @@ const SubNavbar = ({ items, current, setCurrent }) => {
                 onClick={(e) => handleNavClick(e, item.id)}
                 style={{
                   fontWeight: "550",
+                  textWrap: "nowrap",
                   padding: "0.8rem 1rem",
                   position: "relative",
                   zIndex: 10,
