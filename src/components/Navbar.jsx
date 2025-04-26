@@ -159,7 +159,7 @@ const Navbar = () => {
           height: "100%",
           width: "100%",
           backgroundColor: isNavbarOpen ? "rgba(0, 0, 0, 0.2)" : "transparent",
-          backdropFilter: isNavbarOpen ? "blur(5px)" : "none",
+          backdropFilter: isNavbarOpen ? "blur(10px)" : "none",
           pointerEvents: isNavbarOpen ? "unset" : "none",
           transition: "all 0.3s",
         }}
