@@ -31,7 +31,7 @@ const Navbar = () => {
         width: "100%",
         boxSizing: "border-box",
         backgroundColor: "#fff",
-        zIndex: 1000,
+        zIndex: 997,
         height: "4rem",
         display: "flex",
         justifyContent: "space-between",

@@ -180,7 +180,7 @@ const SubNavbar = ({ items, current, setCurrent }) => {
           backgroundColor: "#f8f8f8",
           position: "fixed",
           width: "100%",
-          zIndex: 1000,
+          zIndex: 799,
           overflowX: "scroll",
           scrollbarWidth: "none",
         }}
@@ -211,7 +211,7 @@ const SubNavbar = ({ items, current, setCurrent }) => {
                   textWrap: "nowrap",
                   padding: "0.8rem 1rem",
                   position: "relative",
-                  zIndex: 100,
+                  zIndex: 800,
                   color: current === item.id ? "#2563eb" : "#4b5563",
                 }}
               >
