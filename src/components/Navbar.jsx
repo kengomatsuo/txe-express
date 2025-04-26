@@ -137,7 +137,7 @@ const Navbar = () => {
       </div>
       <div
         style={{
-          zIndex: 999,
+          zIndex: 998,
           position: "fixed",
           top: 0,
           left: 0,
@@ -155,7 +155,7 @@ const Navbar = () => {
       <nav
         {...swipeHandlers} // Attach swipe handlers here
         style={{
-          zIndex: 10,
+          zIndex: 999,
           position: "fixed",
           top: 0,
           right: 0,
