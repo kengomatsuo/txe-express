@@ -209,19 +209,39 @@ const Navbar = () => {
                 }}
                 onClick={() => setIsNavbarOpen(false)}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.opacity = 1
+                  // Only change opacity if not active
+                  const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
+                  if (!isActive) {
+                    e.currentTarget.style.opacity = 1;
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.opacity = 0.7
+                  // Only change opacity if not active
+                  const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
+                  if (!isActive) {
+                    e.currentTarget.style.opacity = 0.7;
+                  }
                 }}
                 onPointerDown={(e) => {
-                  e.currentTarget.style.opacity = 0.5;
+                  // Only change opacity if not active
+                  const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
+                  if (!isActive) {
+                    e.currentTarget.style.opacity = 0.5;
+                  }
                 }}
                 onPointerUp={(e) => {
-                  e.currentTarget.style.opacity = 0.7;
+                  // Only change opacity if not active
+                  const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
+                  if (!isActive) {
+                    e.currentTarget.style.opacity = 0.7;
+                  }
                 }}
                 onPointerCancel={(e) => {
-                  e.currentTarget.style.opacity = 0.7;
+                  // Only change opacity if not active
+                  const isActive = e.currentTarget.getAttribute('aria-current') === 'page';
+                  if (!isActive) {
+                    e.currentTarget.style.opacity = 0.7;
+                  }
                 }}
               >
                 {item.name}
